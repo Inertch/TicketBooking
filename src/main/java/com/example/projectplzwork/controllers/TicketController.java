@@ -40,7 +40,6 @@ public class TicketController {
         ticket.setSeatNumber((String) payload.get("seatNumber"));
         ticket.setPrice(((Number) payload.get("price")).doubleValue());
 
-        // Ensure the status is properly converted from String to Enum
         ticket.setStatus(TicketStatus.valueOf((String) payload.get("status").toString().toUpperCase()));
 
         Ticket savedTicket = ticketService.saveTicket(ticket, movieId);

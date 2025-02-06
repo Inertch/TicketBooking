@@ -20,11 +20,10 @@ public class Ticket {
     @Column(name = "price", nullable = false)
     private Double price;
 
-    @Enumerated(EnumType.STRING) // Store enums as Strings
+    @Enumerated(EnumType.STRING)
     @Column(name = "status", nullable = false)
     private TicketStatus status = TicketStatus.AVAILABLE;
 
-    // ✅ Constructors, Getters, and Setters
     public Ticket() {}
 
     public Ticket(Movie movie, String seatNumber, Double price, TicketStatus status) {
