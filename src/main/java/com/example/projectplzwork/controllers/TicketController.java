@@ -19,7 +19,7 @@ import java.util.Optional; // Fix Optional import
 public class TicketController {
 
     @Autowired
-    private TicketService ticketService;  // Fix: Ensure this is assigned correctly
+    private TicketService ticketService;
 
     @GetMapping
     public ResponseEntity<List<Ticket>> getAllTickets() {
