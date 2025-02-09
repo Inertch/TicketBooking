@@ -26,9 +26,9 @@ public class MovieController {
 
         if (movie.getTickets() != null) {
             for (Ticket ticket : movie.getTickets()) {
-                ticket.setMovie(movie); // ✅ Link tickets to the movie
+                ticket.setMovie(movie);
                 if (ticket.getStatus() == null) {
-                    ticket.setStatus(TicketStatus.AVAILABLE); // ✅ Default status
+                    ticket.setStatus(TicketStatus.AVAILABLE);
                 }
             }
         }
