@@ -22,7 +22,7 @@ public class MovieController {
     @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/admin/add-movie")
     public ResponseEntity<Movie> addMovie(@RequestBody Movie movie) {
-        movie.setId(null); // ✅ Prevent duplicate key issue
+        movie.setId(null);
 
         if (movie.getTickets() != null) {
             for (Ticket ticket : movie.getTickets()) {
