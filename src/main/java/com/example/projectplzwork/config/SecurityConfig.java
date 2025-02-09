@@ -18,10 +18,10 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-                .csrf(csrf -> csrf.disable()) // Updated syntax for disabling CSRF
+                .csrf(csrf -> csrf.disable()) 
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/admin/**").hasRole("ADMIN") // Only ADMIN can access
-                        .requestMatchers("/users/**").authenticated() // Authenticated users only
+                        .requestMatchers("/admin/**").hasRole("ADMIN") 
+                        .requestMatchers("/users/**").authenticated() 
                         .anyRequest().permitAll() // Other requests are public
                 )
                 .sessionManagement(session -> session
