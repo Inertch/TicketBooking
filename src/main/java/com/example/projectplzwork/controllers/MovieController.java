@@ -39,6 +39,7 @@ public ResponseEntity<Movie> addMovie(@RequestBody Movie movie) {
 }
 
 @PreAuthorize("hasRole('ADMIN')")
+@PutMapping("admin/update-movie/{id}")
 public ResponseEntity<Movie> updateMovie(@PathVariable Long id, @Valid @RequestBody Movie updatedMovie) {
     Movie movie = movieService.updateMovie(id, updatedMovie);
     return ResponseEntity.ok(movie);
