@@ -12,25 +12,32 @@ import java.util.Optional;
 public class MovieService {
 
     @Autowired
-    private MovieRepository movieRepository;
+private MovieRepository movieRepository;
 
-    // Save Movie
-    public Movie saveMovie(Movie movie) {
+public Movie saveMovie(Movie movie) {
+    return movieRepository.save(movie);
+}
+
+public Movie updateMovie(Long id, Movie updatedMovie) {
+    return movieRepository.findById(id).map(movie -> {
+        movie.setTitle(updatedMovie.getTitle());
+        movie.setGenre(updatedMovie.getGenre());
+        movie.setDateTime(updatedMovie.getDateTime());
+        movie.setScreen(updatedMovie.getScreen());
         return movieRepository.save(movie);
-    }
+    }).orElseThrow(() -> new RuntimeException("Movie with ID " + id + " not found"));
+}
 
-    // Get All Movies
-    public List<Movie> getAllMovies() {
-        return movieRepository.findAll();
-    }
 
-    // Get Movie by ID
-    public Optional<Movie> getMovieById(Long id) {
-        return movieRepository.findById(id);
-    }
+public List<Movie> getAllMovies() {
+    return movieRepository.findAll();
+}
 
-    // Delete Movie
-    public void deleteMovie(Long id) {
-        movieRepository.deleteById(id);
-    }
+public Optional<Movie> getMovieById(Long id) {
+    return movieRepository.findById(id);
+}
+
+public void deleteMovie(Long id) {
+    movieRepository.deleteById(id);
+}
 }
