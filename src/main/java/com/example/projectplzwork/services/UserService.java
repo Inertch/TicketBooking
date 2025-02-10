@@ -1,6 +1,5 @@
 package com.example.projectplzwork.services;
 
-
 import com.example.projectplzwork.entities.User;
 import com.example.projectplzwork.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +18,7 @@ public class UserService {
     }
 
     public List<User> getAllUsers() {
-        return userRepository.findAll(); // reveling something
+        return userRepository.findAll(); 
     }
 
     public Optional<User> getUserById(Long id) {
